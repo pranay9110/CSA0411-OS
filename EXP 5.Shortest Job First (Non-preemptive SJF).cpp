@@ -7,8 +7,6 @@ int main() {
 
     printf("Enter number of processes: ");
     scanf("%d", &n);
-
-    // Input Burst Time and Priority
     for (i = 0; i < n; i++) {
         printf("Enter Burst Time for P%d: ", i + 1);
         scanf("%d", &bt[i]);
@@ -16,17 +14,12 @@ int main() {
         scanf("%d", &priority[i]);
         p[i] = i + 1; // process ID
     }
-
-    // Sort processes by priority (higher priority first)
     for (i = 0; i < n; i++) {
         for (j = i + 1; j < n; j++) {
-            if (priority[j] > priority[i]) { // non-preemptive: higher priority first
-                // Swap priority
+            if (priority[j] > priority[i]) { 
                 temp = priority[i];
                 priority[i] = priority[j];
                 priority[j] = temp;
-
-                // Swap burst time
                 temp = bt[i];
                 bt[i] = bt[j];
                 bt[j] = temp;
@@ -65,4 +58,5 @@ int main() {
 
     return 0;
 }
+
 
